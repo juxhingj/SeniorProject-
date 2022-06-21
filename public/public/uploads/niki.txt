@@ -1,0 +1,65 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
+
+public class MainClass {
+
+
+    //-file C:\Users\the1j\IdeaProjects\Assignment1ADVJava\src\owid-covid-data.csv -limit 5 -by NC -display DATE:
+
+    public static void main(String[] args) throws IOException {
+
+        int limit = 0;
+        String by = "";
+        String Display = "";
+        String pathToFile = "";
+        String stat = "";
+        //input from user
+        Scanner myInput = new Scanner(System.in);
+        String myinput = myInput.nextLine();
+        String[] criteriaSplit = myinput.split(" ");
+
+        if(criteriaSplit.length > 5 ){
+
+            //pathToFile = criteriaSplit[1];
+            //stat = criteriaSplit[3];
+            //limit = Integer.parseInt(criteriaSplit[5]);
+            //by = criteriaSplit[7];
+            //Display = criteriaSplit[9];
+        }
+        else{
+            pathToFile = criteriaSplit[0];
+            //stat = criteriaSplit[1];
+            // limit = Integer.parseInt(criteriaSplit[2]);
+          // by = criteriaSplit[3];
+            // Display = criteriaSplit[4];
+
+        }
+        //change of variables
+
+
+        List<String> inputCVS =  Files.readAllLines(Path.of(pathToFile));
+
+        List<String> columns = List.of(inputCVS.get(0).split(","));
+
+        columns.forEach(System.out::println);
+        System.out.println(by);
+
+    }
+private static List<String> columns(List<List<String>> code){
+        return code.stream().findFirst().get();
+
+    }
+    private static Map<Integer, colMap> getNumbers(List<List<String>> code){
+        List<String> numbers = columns(code);
+        int cod = numbers.indexOf("iso_code");
+        int cnt = numbers.indexOf("continent");
+
+
+    }
+    
+}
+
+
+
